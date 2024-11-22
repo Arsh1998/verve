@@ -51,7 +51,7 @@ func AcceptHandler(c *gin.Context) {
 	}
 
 	if endpoint != "" {
-		go utils.SendHTTPGet(endpoint, requestCount)
+		go utils.SendHTTPPost(endpoint, requestCount)
 	}
 
 	c.JSON(http.StatusOK, gin.H{"status": "ok"})
