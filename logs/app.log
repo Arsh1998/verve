@@ -20,11 +20,4 @@
 {"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-22T17:25:40+05:30"}
 {"level":"error","msg":"HTTP request failed: Get \"https://www.rt.com/?count=14\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)","time":"2024-11-22T17:26:04+05:30"}
 {"level":"error","msg":"HTTP request failed: Get \"https://www.rt.com/?count=15\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)","time":"2024-11-22T17:26:05+05:30"}
-{"level":"info","msg":"Unique request received with ID: 3","time":"2024-11-23T20:20:40+05:30"}
-{"level":"info","msg":"Unique request received with ID: 1","time":"2024-11-23T20:20:44+05:30"}
-{"level":"info","msg":"HTTP GET to http://df.com returned status code 200","time":"2024-11-23T20:20:44+05:30"}
-{"level":"info","msg":"HTTP GET to http://df.com returned status code 200","time":"2024-11-23T20:20:44+05:30"}
-{"level":"info","msg":"HTTP GET to http://df.com returned status code 200","time":"2024-11-23T20:20:45+05:30"}
-{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T20:20:50+05:30"}
-{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T20:20:51+05:30"}
-{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T20:20:51+05:30"}
+

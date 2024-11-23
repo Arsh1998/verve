@@ -1,4 +1,4 @@
-Object : 
+Objective : 
 
 Build a Go application - REST service which is able to process at least 10K requests per second.
 ● The service has one GET endpoint - /api/verve/accept which is able to accept an integer id as a
@@ -28,3 +28,13 @@ Logging**:
 
 Scalability**:
    - Designed the application to handle 10K RPS by using efficient data structures and connection pooling.
+
+Objective Extension-1
+
+Instead of firing an HTTP GET request to the endpoint, fire a POST request. The data structure
+of the content can be freely decided
+
+I have implemented SendHTTPPOST method with payload to provided endpoint, now i can use this method to implementing
+the desired logic.
+
+So by switching from a GET to a POST request, we enable the application to send more flexible and structured data.
