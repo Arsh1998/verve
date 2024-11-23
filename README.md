@@ -1,6 +1,9 @@
 # verve
 Technical challenge solution by Arshdeep Singh
 
+# running service in local env
+`go run cmd/main.go`
+
 # running service docker image
 `docker run -p 8080:8080 \
     -e AWS_ACCESS_KEY_ID=<your-access-key> \
