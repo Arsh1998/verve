@@ -3,3 +3,6 @@ redis:
   port: 6379
   password: ""
   db: 0
+aws:
+  region: "us-west-2"
+  kinesisStream: "verve-logs-kinesis-stream"

@@ -3,6 +3,7 @@ package main
 import (
 	"verve/config"
 	"verve/internal/handlers"
+	"verve/internal/kinesis"
 	"verve/internal/logger"
 	"verve/internal/redisclient"
 
@@ -21,6 +22,9 @@ func main() {
 
 	// Initialize redis client
 	redisclient.Initialize(config.AppConfig)
+
+	// Initialize kinesis client
+	kinesis.LoadKinesisClient(config.AppConfig)
 
 	// Create Gin router
 	router := gin.Default()

@@ -14,6 +14,10 @@ type Config struct {
 		Password string `yaml:"password"`
 		DB       int    `yaml:"db"`
 	} `yaml:"redis"`
+	AWS struct {
+		Region        string `yaml:"region"`
+		KinesisStream string `yaml:"kinesisStream"`
+	} `yaml:"aws"`
 }
 
 var AppConfig Config

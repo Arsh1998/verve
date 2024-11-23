@@ -1,13 +1,18 @@
-Objective : Extension 2
-Ensure that ID deduplication works effectively when the service operates behind a load balancer with multiple instances running concurrently. This ensures that even if two instances receive the same id simultaneously, the deduplication logic remains intact and no duplicate counts are logged.
-
-Key Challenges
-Distributed Nature: Each instance of the service may maintain its own local state, which can result in duplicate counts if the same id is processed by multiple instances.
-Consistency Across Instances: There needs to be a central, shared mechanism to determine the uniqueness of ids across all instances.
+Objective : Extension 3
+Instead of writing the count of unique received ids to a log file, send the count of unique received
+ids to a distributed streaming service of your choice.
 
 Solution Approach
-To tackle this, I designed the system to use Redis as a centralized storage for tracking processed ids. Redis offers atomic operations, which are crucial for ensuring that the deduplication logic is consistent across all instances.
+I have replaced the log file mechanism with an AWS Kinesis-based solution, it will send the unique request count for each minute to a distributed streaming service.
 
-Load Balancer Behavior:
+Kinesis Provides these advantages :
+Scalability: Kinesis is designed to handle massive amounts of data and can process high throughput, making it ideal for a service targeting 10,000 requests per second.
+Durability: Records sent to Kinesis are stored durably and can be replayed if needed.
+Integration: It integrates seamlessly with analytics tools, databases, and AWS services like S3, Lambda, or Redshift.
+Real-Time Processing: Data in Kinesis can be consumed by multiple downstream systems for real-time analytics or other use cases.
 
-Since all instances share the same Redis cluster, the load balancer's distribution of traffic does not impact deduplication. Whether the same id reaches one or multiple instances, the global Redis ensures consistency.
+
+By using AWS Kinesis, the application achieves a scalable and reliable mechanism to publish unique request counts. This approach not only meets the functional requirements but also provides a foundation for real-time analytics and future enhancements.
+
+
+

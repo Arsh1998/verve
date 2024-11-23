@@ -5,6 +5,7 @@ import (
 	"sync"
 	"time"
 
+	"verve/internal/kinesis"
 	"verve/internal/logger"
 	"verve/internal/redisclient"
 	"verve/internal/utils"
@@ -21,7 +22,7 @@ func init() {
 	// Periodic logging every minute
 	go func() {
 		for range time.Tick(1 * time.Minute) {
-			logUniqueRequests()
+			processUniqueRequests(requestCount)
 		}
 	}()
 }
@@ -56,7 +57,10 @@ func AcceptHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "ok"})
 }
 
-func logUniqueRequests() {
-	logger.FileLog.Infof("Unique requests in the last minute: %d", requestCount)
-	requestCount = 0
+func processUniqueRequests(count int) {
+
+	// Send unique request count to Kinesis
+	if err := kinesis.SendRecord(count); err != nil {
+		logger.ConsoleLog.Printf("Error sending record to Kinesis: %v", err)
+	}
 }
