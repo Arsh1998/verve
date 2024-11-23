@@ -1,8 +1,11 @@
 package main
 
 import (
+	"verve/config"
 	"verve/internal/handlers"
+	"verve/internal/kinesis"
 	"verve/internal/logger"
+	"verve/internal/redisclient"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,6 +13,18 @@ import (
 func main() {
 	// Initialize logger
 	logger.Initialize()
+
+	// Load the configuration
+	err := config.LoadConfig("config/config.yaml")
+	if err != nil {
+		logger.ConsoleLog.Fatalf("Failed to load configuration: %v", err)
+	}
+
+	// Initialize redis client
+	redisclient.Initialize(config.AppConfig)
+
+	// Initialize kinesis client
+	kinesis.LoadKinesisClient(config.AppConfig)
 
 	// Create Gin router
 	router := gin.Default()

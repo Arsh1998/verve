@@ -5,23 +5,24 @@ import (
 	"sync"
 	"time"
 
+	"verve/internal/kinesis"
 	"verve/internal/logger"
+	"verve/internal/redisclient"
 	"verve/internal/utils"
 
 	"github.com/gin-gonic/gin"
 )
 
 var (
-	uniqueRequests sync.Map
-	requestCount   int
-	mu             sync.Mutex
+	requestCount int
+	mu           sync.Mutex
 )
 
 func init() {
 	// Periodic logging every minute
 	go func() {
 		for range time.Tick(1 * time.Minute) {
-			logUniqueRequests()
+			processUniqueRequests(requestCount)
 		}
 	}()
 }
@@ -40,15 +41,14 @@ func AcceptHandler(c *gin.Context) {
 	mu.Lock()
 	defer mu.Unlock()
 
-	_, exists := uniqueRequests.LoadOrStore(id, true)
-	requestCount++
-
-	// Log the uniqueness
-	if !exists {
-		logger.FileLog.Infof("Unique request received with ID: %s", id)
-	} else {
+	if redisclient.IsDuplicate(id) {
 		logger.ConsoleLog.Infof("Duplicate request received with ID: %s", id)
+		c.JSON(http.StatusOK, gin.H{"status": "ok"})
+		return
 	}
+
+	requestCount++
+	logger.FileLog.Infof("Unique request received with ID: %s", id)
 
 	if endpoint != "" {
 		go utils.SendHTTPGet(endpoint, requestCount)
@@ -57,15 +57,10 @@ func AcceptHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "ok"})
 }
 
-func logUniqueRequests() {
-	count := 0
-	uniqueRequests.Range(func(_, _ interface{}) bool {
-		count++
-		return true
-	})
+func processUniqueRequests(count int) {
 
-	logger.FileLog.Infof("Unique requests in the last minute: %d", count)
-
-	// Clear the map for the next minute
-	uniqueRequests = sync.Map{}
+	// Send unique request count to Kinesis
+	if err := kinesis.SendRecord(count); err != nil {
+		logger.ConsoleLog.Printf("Error sending record to Kinesis: %v", err)
+	}
 }
