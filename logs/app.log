@@ -20,3 +20,37 @@
 {"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-22T17:25:40+05:30"}
 {"level":"error","msg":"HTTP request failed: Get \"https://www.rt.com/?count=14\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)","time":"2024-11-22T17:26:04+05:30"}
 {"level":"error","msg":"HTTP request failed: Get \"https://www.rt.com/?count=15\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)","time":"2024-11-22T17:26:05+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T17:53:55+05:30"}
+{"level":"info","msg":"Unique request received with ID: 1","time":"2024-11-23T18:09:00+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:09:01+05:30"}
+{"level":"info","msg":"Unique request received with ID: 3","time":"2024-11-23T18:09:09+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:09:10+05:30"}
+{"level":"info","msg":"Unique request received with ID: 5","time":"2024-11-23T18:09:13+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:09:14+05:30"}
+{"level":"info","msg":"Unique request received with ID: 6","time":"2024-11-23T18:09:17+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:09:17+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 4","time":"2024-11-23T18:09:51+05:30"}
+{"level":"info","msg":"Unique request received with ID: 6","time":"2024-11-23T18:10:32+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:10:32+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 1","time":"2024-11-23T18:11:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:12:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:13:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:14:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:15:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:16:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:17:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:18:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:19:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:20:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:21:25+05:30"}
+{"level":"info","msg":"Unique requests in the last minute: 0","time":"2024-11-23T18:22:25+05:30"}
+{"level":"info","msg":"Unique request received with ID: 6","time":"2024-11-23T18:27:22+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:27:22+05:30"}
+{"level":"info","msg":"Unique request received with ID: 1","time":"2024-11-23T18:27:27+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:27:27+05:30"}
+{"level":"info","msg":"Unique request received with ID: 3","time":"2024-11-23T18:27:30+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:27:30+05:30"}
+{"level":"info","msg":"Unique request received with ID: 4","time":"2024-11-23T18:27:33+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:27:34+05:30"}
+{"level":"info","msg":"Unique request received with ID: 4","time":"2024-11-23T18:37:58+05:30"}
+{"level":"info","msg":"HTTP GET to http://example.com returned status code 200","time":"2024-11-23T18:37:59+05:30"}
